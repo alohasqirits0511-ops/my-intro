@@ -26,4 +26,31 @@ document.addEventListener('DOMContentLoaded', () => {
         const hero = document.getElementById('hero');
         if(hero) hero.classList.add('visible');
     }, 100);
+
+    // 3D Tilt Effect on the Hero Name Section only
+    const nameCard = document.querySelector('.hero-content');
+    if (nameCard) {
+        nameCard.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)';
+        nameCard.addEventListener('mousemove', (e) => {
+            const rect = nameCard.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = ((y - centerY) / centerY) * -10; 
+            const rotateY = ((x - centerX) / centerX) * 10;
+            
+            nameCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            nameCard.style.boxShadow = `${8 - rotateY}px ${8 + rotateX}px 0 var(--shadow-color)`;
+            nameCard.style.transition = 'none';
+        });
+
+        nameCard.addEventListener('mouseleave', () => {
+            nameCard.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.5s cubic-bezier(0.25, 0.8, 0.25, 1)';
+            nameCard.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+            nameCard.style.boxShadow = `8px 8px 0 var(--shadow-color)`;
+        });
+    }
 });

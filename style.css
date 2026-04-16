@@ -167,6 +167,7 @@ section {
     background-color: var(--retro-teal);
     color: white;
     padding: 4rem 3rem;
+    transform-style: preserve-3d;
 }
 
 .greeting {
@@ -184,6 +185,7 @@ h1 {
     letter-spacing: 2px;
     text-shadow: 4px 4px 0 var(--ink-black);
     margin-bottom: 0.5rem;
+    transform: translateZ(40px);
 }
 
 .hero .subtitle {
