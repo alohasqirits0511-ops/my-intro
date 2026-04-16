@@ -1,0 +1,396 @@
+/* Reset & Base Variables */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-cream: #F5EFEB; /* Vintage paper */
+    --retro-red: #D22B2B; /* Classic diner red */
+    --retro-teal: #008080; /* Vintage 50s teal */
+    --retro-yellow: #F0A500; /* Mustard yellow */
+    --ink-black: #1A1A1A; /* Dark charcoal/ink */
+    --shadow-color: #1A1A1A;
+}
+
+body {
+    background-color: var(--bg-cream);
+    /* Subtle dot pattern for retro print feel */
+    background-image: radial-gradient(var(--ink-black) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0;
+    color: var(--ink-black);
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Typography styles */
+h1, h2, h3, .logo, .greeting {
+    font-family: 'Righteous', "Noto Sans JP", cursive;
+    text-transform: uppercase;
+}
+
+/* Nav */
+nav {
+    padding: 1.5rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    background-color: var(--retro-red);
+    border-bottom: 5px solid var(--ink-black);
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    font-family: 'Lobster', cursive;
+    text-transform: none;
+    font-size: 2.5rem;
+    color: var(--bg-cream);
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0 var(--ink-black);
+    transform: rotate(-3deg);
+}
+
+/* Checker Pattern Top & Bottom */
+.checker-border {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background-image: linear-gradient(45deg, var(--ink-black) 25%, transparent 25%, transparent 75%, var(--ink-black) 75%, var(--ink-black)),
+      linear-gradient(45deg, var(--ink-black) 25%, transparent 25%, transparent 75%, var(--ink-black) 75%, var(--ink-black));
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    z-index: 101;
+}
+.checker-border.bottom {
+    top: auto;
+    bottom: 0;
+}
+
+/* Layout */
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 8rem 2rem 4rem;
+}
+
+section {
+    position: relative;
+    margin-bottom: 6rem;
+}
+
+.hero {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Retro Box / solid drop shadow effect */
+.retro-box {
+    background-color: var(--bg-cream);
+    border: 4px solid var(--ink-black);
+    box-shadow: 8px 8px 0 var(--shadow-color);
+    padding: 3rem;
+    border-radius: 12px;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.alt-color {
+    background-color: #E2DBD5; /* slightly darker cream */
+}
+
+/* Retro Badge */
+.retro-badge {
+    position: absolute;
+    top: -30px;
+    right: -20px;
+    background-color: var(--retro-yellow);
+    border: 3px solid var(--ink-black);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(15deg);
+    box-shadow: 4px 4px 0 var(--ink-black);
+    z-index: 10;
+}
+
+.retro-badge .badge-text {
+    font-family: 'Righteous', cursive;
+    font-size: 1.8rem;
+    line-height: 1;
+    color: var(--ink-black);
+}
+
+.retro-badge .badge-sub {
+    font-family: 'Righteous', cursive;
+    font-size: 0.8rem;
+    color: var(--retro-red);
+}
+
+/* Hero Content */
+.hero-content {
+    background-color: var(--retro-teal);
+    color: white;
+    padding: 4rem 3rem;
+}
+
+.greeting {
+    font-family: 'Lobster', cursive;
+    font-size: 2.5rem;
+    text-transform: none;
+    color: var(--retro-yellow);
+    margin-bottom: -10px;
+    transform: rotate(-5deg);
+}
+
+h1 {
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    letter-spacing: 2px;
+    text-shadow: 4px 4px 0 var(--ink-black);
+    margin-bottom: 0.5rem;
+}
+
+.hero .subtitle {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    background-color: var(--ink-black);
+    color: var(--retro-yellow);
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+    margin-top: 3rem;
+    font-family: 'Righteous', cursive;
+    font-size: 1.2rem;
+    color: var(--ink-black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.arrow-down {
+    margin-top: 10px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(10px); }
+    60% { transform: translateY(5px); }
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 3rem;
+    letter-spacing: 1px;
+    text-shadow: 3px 3px 0 var(--retro-red);
+    margin-bottom: 2rem;
+    display: inline-block;
+    border-bottom: 4px solid var(--ink-black);
+    line-height: 1.2;
+}
+
+/* About List */
+.hobby-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.hobby-list li {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.icon-wrap {
+    width: 80px;
+    height: 80px;
+    border: 3px solid var(--ink-black);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 4px 0 var(--ink-black);
+    flex-shrink: 0;
+}
+
+.icon {
+    font-size: 2.5rem;
+}
+
+.text-wrap h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    color: var(--retro-red);
+}
+
+.text-wrap p {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.red-bg { background-color: var(--retro-red); }
+.teal-bg { background-color: var(--retro-teal); }
+.yellow-bg { background-color: var(--retro-yellow); }
+
+.red-bg h3, .teal-bg h3, .yellow-bg h3 {
+    color: var(--ink-black);
+}
+.red-bg p, .teal-bg p, .yellow-bg p {
+    color: var(--ink-black);
+}
+
+.dark-text h3, .dark-text p {
+    color: var(--bg-cream);
+}
+.dark-text h3 {
+    text-shadow: 2px 2px 0 var(--ink-black);
+}
+
+/* AI Section Grid */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.card-hover:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0 var(--shadow-color);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background-color: var(--bg-cream);
+    display: inline-block;
+    padding: 10px;
+    border: 3px solid var(--ink-black);
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 var(--ink-black);
+}
+
+.cards-grid h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.cards-grid p {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* Challenge Section */
+.showcase {
+    background-color: var(--bg-cream);
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.tape {
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    background-color: rgba(255,255,255,0.4);
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    z-index: 2;
+}
+
+.tape-top-left {
+    top: -15px;
+    left: -20px;
+    transform: rotate(-15deg);
+}
+
+.tape-bottom-right {
+    bottom: -15px;
+    right: -20px;
+    transform: rotate(-10deg);
+}
+
+.highlight-title {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: var(--ink-black);
+    background-color: var(--retro-yellow);
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 3px solid var(--ink-black);
+    box-shadow: 4px 4px 0 var(--ink-black);
+    margin-bottom: 1rem;
+    transform: rotate(-1deg);
+}
+
+.showcase-desc {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.retro-hr {
+    border: none;
+    border-top: 4px dashed var(--ink-black);
+    margin: 2rem 0;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--ink-black);
+    color: var(--bg-cream);
+    font-family: 'Righteous', cursive;
+    position: relative;
+    z-index: 10;
+}
+
+/* Animation Classes */
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .retro-box {
+        padding: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .hobby-list li {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+}
