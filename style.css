@@ -107,16 +107,18 @@ section {
     padding: 3rem;
     border-radius: 12px;
     position: relative;
-    /* transition properties are now handled by JS for tilt, but keep default for smooth reset */
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-    transform-style: preserve-3d;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Float Animation for Boxes */
+.retro-box:hover {
+    transform: scale(1.02);
+}
+
+/* Float Animation for Greeting Name Area */
 @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
+    0% { transform: translateY(0px) rotate(-5deg); }
+    50% { transform: translateY(-10px) rotate(-5deg); }
+    100% { transform: translateY(0px) rotate(-5deg); }
 }
 
 .alt-color {
@@ -139,13 +141,12 @@ section {
     justify-content: center;
     box-shadow: 4px 4px 0 var(--ink-black);
     z-index: 10;
-    animation: badge-wiggle 4s ease-in-out infinite;
-    transform: translateZ(50px); /* Extruding out via 3D transform */
+    transform: rotate(15deg);
+    transition: transform 0.3s ease;
 }
 
-@keyframes badge-wiggle {
-    0%, 100% { transform: translateZ(50px) rotate(15deg) scale(1); }
-    50% { transform: translateZ(50px) rotate(25deg) scale(1.05); }
+.retro-badge:hover {
+    transform: rotate(15deg) scale(1.1);
 }
 
 .retro-badge .badge-text {
@@ -166,12 +167,6 @@ section {
     background-color: var(--retro-teal);
     color: white;
     padding: 4rem 3rem;
-    position: relative;
-    transform-style: preserve-3d;
-}
-
-.hero-content:hover {
-    box-shadow: 15px 15px 0 var(--shadow-color);
 }
 
 .greeting {
@@ -180,7 +175,6 @@ section {
     text-transform: none;
     color: var(--retro-yellow);
     margin-bottom: -10px;
-    transform: rotate(-5deg) translateZ(30px);
     display: inline-block;
     animation: float 3s ease-in-out infinite;
 }
@@ -190,7 +184,6 @@ h1 {
     letter-spacing: 2px;
     text-shadow: 4px 4px 0 var(--ink-black);
     margin-bottom: 0.5rem;
-    transform: translateZ(40px);
 }
 
 .hero .subtitle {
@@ -202,7 +195,6 @@ h1 {
     display: inline-block;
     padding: 0.5rem 1rem;
     border-radius: 4px;
-    transform: translateZ(20px);
 }
 
 /* Scroll indicator */
@@ -268,11 +260,11 @@ h1 {
     justify-content: center;
     box-shadow: 4px 4px 0 var(--ink-black);
     flex-shrink: 0;
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .hobby-list li:hover .icon-wrap {
-    transform: rotate(-15deg) scale(1.1);
+    transform: scale(1.1);
 }
 
 .icon {
@@ -283,8 +275,6 @@ h1 {
     font-size: 1.6rem;
     margin-bottom: 0.5rem;
     color: var(--retro-red);
-    display: inline-block;
-    transition: color 0.3s;
 }
 
 .text-wrap p {
@@ -330,7 +320,7 @@ h1 {
 }
 
 .card-hover:hover .card-icon {
-    transform: translateY(-10px) rotate(10deg);
+    transform: scale(1.1);
 }
 
 .cards-grid h3 {
@@ -388,7 +378,7 @@ h1 {
 }
 
 .highlight-title:hover {
-    transform: rotate(2deg) scale(1.05);
+    transform: rotate(-1deg) scale(1.03);
 }
 
 .showcase-desc {
