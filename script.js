@@ -77,4 +77,34 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // 4. Interactive Tapes (Peel off on click)
+    const tapes = document.querySelectorAll('.tape');
+    tapes.forEach(tape => {
+        tape.addEventListener('click', () => {
+            tape.classList.add('peeled');
+        });
+    });
+
+    // 5. Easter Egg: Neon Diner Mode Toggle
+    const retroBadge = document.querySelector('.retro-badge');
+    if (retroBadge) {
+        retroBadge.addEventListener('click', () => {
+            document.body.classList.toggle('neon-diner-mode');
+        });
+    }
+
+    // 6. Mouse Parallax on background properties
+    document.addEventListener('mousemove', (e) => {
+        const x = e.clientX / window.innerWidth;
+        
+        // Slightly shift the background dot pattern based on mouse X
+        document.body.style.backgroundPosition = `${x * 20}px 0`;
+        
+        // Shift checker borders
+        const checkers = document.querySelectorAll('.checker-border');
+        checkers.forEach(checker => {
+            checker.style.backgroundPosition = `${x * 40}px 0, ${10 + (x * 40)}px 10px`;
+        });
+    });
 });

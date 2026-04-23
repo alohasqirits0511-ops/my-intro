@@ -23,6 +23,30 @@ body {
     font-family: 'Noto Sans JP', sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Neon Diner Easter Egg Mode */
+body.neon-diner-mode {
+    --bg-cream: #1a0b2e;
+    --retro-red: #ff0055;
+    --retro-teal: #00ffff;
+    --retro-yellow: #ffea00;
+    --ink-black: #ffffff;
+    --shadow-color: #ff0055;
+    background-image: radial-gradient(var(--retro-teal) 1px, transparent 1px);
+}
+body.neon-diner-mode .retro-box,
+body.neon-diner-mode .icon-wrap,
+body.neon-diner-mode .card-icon,
+body.neon-diner-mode .highlight-title,
+body.neon-diner-mode .retro-badge {
+    box-shadow: 8px 8px 0 var(--retro-teal);
+    border-color: var(--retro-teal);
+}
+body.neon-diner-mode .checker-border {
+    background-image: linear-gradient(45deg, var(--retro-teal) 25%, transparent 25%, transparent 75%, var(--retro-teal) 75%, var(--retro-teal)),
+      linear-gradient(45deg, var(--retro-teal) 25%, transparent 25%, transparent 75%, var(--retro-teal) 75%, var(--retro-teal));
 }
 
 /* Typography styles */
@@ -142,7 +166,28 @@ section {
     box-shadow: 4px 4px 0 var(--ink-black);
     z-index: 10;
     transform: rotate(15deg);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.5s ease;
+    cursor: pointer;
+}
+
+.retro-badge::after {
+    content: "CLICK ME!";
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 0.8rem;
+    background: var(--retro-teal);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 10px;
+    transform: rotate(-15deg);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.retro-badge:hover::after {
+    opacity: 1;
 }
 
 .retro-badge:hover {
@@ -350,6 +395,18 @@ h1 {
     border: 1px solid rgba(0,0,0,0.1);
     box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     z-index: 2;
+    cursor: pointer;
+    transition: transform 0.6s cubic-bezier(0.55, 0.085, 0.68, 0.53), opacity 0.6s ease;
+}
+
+.tape:hover {
+    background-color: rgba(255,255,255,0.6);
+}
+
+.tape.peeled {
+    transform: translateY(200px) rotate(45deg);
+    opacity: 0;
+    pointer-events: none;
 }
 
 .tape-top-left {
