@@ -49,6 +49,85 @@ body.neon-diner-mode .checker-border {
       linear-gradient(45deg, var(--retro-teal) 25%, transparent 25%, transparent 75%, var(--retro-teal) 75%, var(--retro-teal));
 }
 
+/* Live House Background */
+.live-house-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background-color: transparent;
+    z-index: -2;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    overflow: hidden;
+}
+
+body.neon-diner-mode .live-house-bg {
+    opacity: 1;
+}
+
+.stage-lights {
+    position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: conic-gradient(from 0deg at 50% 0%, transparent 40%, rgba(255,0,255,0.4) 45%, rgba(0,255,255,0.4) 50%, transparent 55%),
+                conic-gradient(from 0deg at 50% 0%, transparent 40%, rgba(255,234,0,0.4) 45%, rgba(255,0,85,0.4) 50%, transparent 55%);
+    animation: sweepLights 5s infinite alternate ease-in-out;
+}
+
+@keyframes sweepLights {
+    0% { transform: rotate(-25deg); }
+    100% { transform: rotate(25deg); }
+}
+
+.band-instruments {
+    position: fixed;
+    bottom: -10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    font-size: clamp(6rem, 15vw, 12rem);
+    opacity: 0.6;
+    filter: drop-shadow(0 0 30px rgba(0, 255, 255, 0.8));
+    pointer-events: none;
+    z-index: -1;
+}
+
+.instrument {
+    display: inline-block;
+}
+
+.instrument.bass {
+    animation: playBass 1s infinite alternate ease-in-out;
+    transform: scaleX(-1);
+    transform-origin: bottom center;
+}
+
+.instrument.drums {
+    font-size: clamp(8rem, 20vw, 16rem);
+    animation: playDrums 0.6s infinite alternate cubic-bezier(0.1, 0.7, 0.1, 1);
+    transform-origin: bottom center;
+}
+
+.instrument.guitar-lead {
+    animation: playGuitar 0.8s infinite alternate ease-in-out;
+    transform-origin: bottom center;
+}
+
+@keyframes playBass {
+    0% { transform: scaleX(-1) rotate(-5deg) translateY(0); }
+    100% { transform: scaleX(-1) rotate(5deg) translateY(-20px); }
+}
+
+@keyframes playDrums {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05) translateY(-5px); }
+}
+
+@keyframes playGuitar {
+    0% { transform: rotate(-5deg) translateY(0); }
+    100% { transform: rotate(15deg) translateY(-30px); }
+}
+
 /* Typography styles */
 h1, h2, h3, .logo, .greeting {
     font-family: 'Righteous', "Noto Sans JP", cursive;
