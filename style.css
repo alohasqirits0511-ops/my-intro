@@ -85,27 +85,30 @@ body.neon-diner-mode .live-house-bg {
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
-    font-size: clamp(6rem, 15vw, 12rem);
-    opacity: 0.6;
-    filter: drop-shadow(0 0 30px rgba(0, 255, 255, 0.8));
+    opacity: 0.85;
     pointer-events: none;
     z-index: -1;
 }
 
 .instrument {
-    display: inline-block;
+    display: block;
+    max-height: 35vh;
+    width: auto;
+    object-fit: contain;
+    mix-blend-mode: screen;
 }
 
 .instrument.bass {
-    animation: playBass 1s infinite alternate ease-in-out;
+    animation: playBass 1.5s infinite alternate ease-in-out;
     transform: scaleX(-1);
     transform-origin: bottom center;
 }
 
 .instrument.drums {
-    font-size: clamp(8rem, 20vw, 16rem);
+    max-height: 45vh;
     animation: playDrums 0.6s infinite alternate cubic-bezier(0.1, 0.7, 0.1, 1);
     transform-origin: bottom center;
+    margin-bottom: 20px;
 }
 
 .instrument.guitar-lead {
