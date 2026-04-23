@@ -418,6 +418,83 @@ footer {
     transform: translateY(0);
 }
 
+/* ========================================= */
+/* Music & Guitar Animation Elements         */
+/* ========================================= */
+
+/* Guitar Container & Icon */
+.guitar-container {
+    position: relative;
+    overflow: visible;
+}
+
+.guitar-icon {
+    display: inline-block;
+    transform-origin: bottom right;
+    animation: strum 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes strum {
+    0% { transform: rotate(-5deg); }
+    100% { transform: rotate(15deg); }
+}
+
+/* Floating Music Notes */
+.note {
+    position: absolute;
+    color: var(--ink-black);
+    font-size: 1.5rem;
+    font-family: 'Righteous', cursive;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.note.n1 { animation: flyNote 2s infinite linear; left: 10px; top: 10px; }
+.note.n2 { animation: flyNote 2.5s infinite linear 0.5s; left: 40px; top: 30px; font-size: 1.2rem; }
+.note.n3 { animation: flyNote 3s infinite linear 1s; left: 60px; top: 0px; font-size: 1.8rem; }
+
+@keyframes flyNote {
+    0% {
+        transform: translate(0, 0) scale(0.5);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(40px, -80px) scale(1.5) rotate(20deg);
+        opacity: 0;
+    }
+}
+
+/* Equalizer Bars for Music/Movie Section */
+.eq-container {
+    padding: 0;
+}
+
+.equalizer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 6px;
+    height: 40px;
+    width: 40px;
+}
+
+.eq-bar {
+    width: 8px;
+    background-color: var(--ink-black);
+    border-radius: 4px 4px 0 0;
+    animation: bounceEq 0.5s infinite ease-in-out alternate;
+}
+
+.eq-bar:nth-child(1) { height: 60%; animation-delay: 0s; }
+.eq-bar:nth-child(2) { height: 100%; animation-delay: 0.2s; }
+.eq-bar:nth-child(3) { height: 40%; animation-delay: 0.4s; }
+
+@keyframes bounceEq {
+    0% { height: 20%; }
+    100% { height: 100%; }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .retro-box {

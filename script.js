@@ -53,4 +53,28 @@ document.addEventListener('DOMContentLoaded', () => {
             nameCard.style.boxShadow = `8px 8px 0 var(--shadow-color)`;
         });
     }
+
+    // 3. Guitar Sound Player
+    const guitarContainer = document.querySelector('.guitar-container');
+    if (guitarContainer) {
+        // フリーのギターサウンド（Mixkit等から引用）
+        const guitarSound = new Audio('https://assets.mixkit.co/active_storage/sfx/2288/2288-preview.mp3');
+        guitarSound.volume = 0.5;
+
+        guitarContainer.addEventListener('click', () => {
+            // 再生位置をリセットして音を鳴らす
+            guitarSound.currentTime = 0;
+            guitarSound.play().catch(e => console.log("Audio playback blocked by browser: ", e));
+            
+            const icon = guitarContainer.querySelector('.guitar-icon');
+            if (icon) {
+                // クリックされた瞬間、激しく弾くようなアニメーションにする
+                icon.style.animationDuration = '0.05s';
+                setTimeout(() => {
+                    // 元のゆったりした揺れに戻す
+                    icon.style.animationDuration = '0.4s';
+                }, 600);
+            }
+        });
+    }
 });
