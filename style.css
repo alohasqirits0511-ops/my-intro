@@ -95,7 +95,7 @@ body.neon-diner-mode .live-house-bg {
     max-height: 35vh;
     width: auto;
     object-fit: contain;
-    mix-blend-mode: screen;
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.8));
 }
 
 .instrument.bass {
