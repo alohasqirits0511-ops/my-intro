@@ -53,7 +53,7 @@ body.neon-diner-mode .checker-border {
 .live-house-bg {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
-    background-color: transparent;
+    background-color: #030108;
     z-index: -2;
     opacity: 0;
     pointer-events: none;
@@ -68,8 +68,8 @@ body.neon-diner-mode .live-house-bg {
 .stage-lights {
     position: absolute;
     top: -50%; left: -50%; width: 200%; height: 200%;
-    background: conic-gradient(from 0deg at 50% 0%, transparent 40%, rgba(255,0,255,0.4) 45%, rgba(0,255,255,0.4) 50%, transparent 55%),
-                conic-gradient(from 0deg at 50% 0%, transparent 40%, rgba(255,234,0,0.4) 45%, rgba(255,0,85,0.4) 50%, transparent 55%);
+    background: conic-gradient(from 0deg at 50% 0%, transparent 40%, rgba(255,0,255,0.15) 45%, rgba(0,255,255,0.15) 50%, transparent 55%),
+                conic-gradient(from 0deg at 50% 0%, transparent 40%, rgba(255,234,0,0.15) 45%, rgba(255,0,85,0.15) 50%, transparent 55%);
     animation: sweepLights 5s infinite alternate ease-in-out;
 }
 
@@ -88,6 +88,14 @@ body.neon-diner-mode .live-house-bg {
     opacity: 0.85;
     pointer-events: none;
     z-index: -1;
+    filter: brightness(0.85);
+}
+
+.guitar-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 .instrument {
@@ -95,7 +103,16 @@ body.neon-diner-mode .live-house-bg {
     max-height: 35vh;
     width: auto;
     object-fit: contain;
-    filter: drop-shadow(0 0 10px rgba(0,0,0,0.8));
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.9));
+}
+
+.instrument.amp {
+    position: absolute;
+    bottom: -5px;
+    right: 25%;
+    max-height: 48vh;
+    z-index: -1;
+    filter: drop-shadow(0 0 25px rgba(0,0,0,1)) brightness(0.5);
 }
 
 .instrument.bass {
